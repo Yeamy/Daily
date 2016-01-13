@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    app:columnCount="2"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ContentActivity"
+    tools:showIn="@layout/activity_content">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_columnSpan="2"
+        app:layout_gravity="fill_vertical">
+
+        <TextView
+            android:id="@+id/content"
+            style="@style/TextContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:textIsSelectable="true" />
+    </android.support.v4.widget.NestedScrollView>
+
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0.5dp"-->
+    <!--android:background="#ddd"-->
+    <!--app:layout_columnSpan="2" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:minHeight="50dp"-->
+    <!--android:paddingRight="5dp"-->
+    <!--android:text="Tags:"-->
+    <!--android:textColor="#000"-->
+    <!--android:textSize="15sp" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tags"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:minHeight="50dp"-->
+    <!--android:text="abc, tag, 2333"-->
+    <!--android:textColor="?attr/colorAccent"-->
+    <!--android:textSize="15sp"-->
+    <!--app:layout_gravity="fill_horizontal" />-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ddd"
+        app:layout_columnSpan="2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:paddingRight="5dp"
+        android:text="From:"
+        android:textColor="#000"
+        android:textSize="14sp"
+        app:layout_gravity="fill_horizontal" />
+
+    <TextView
+        android:id="@+id/startTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:text="2015 Dec. 28 Mon"
+        android:textSize="14sp"
+        app:layout_gravity="fill_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:paddingRight="5dp"
+        android:text="Finish:"
+        android:textColor="#000"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/finishTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:text="2015 Dec. 28 Mon"
+        android:textSize="14sp"
+        app:layout_gravity="fill_horizontal" />
+
+</android.support.v7.widget.GridLayout>

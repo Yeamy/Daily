@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_timeline"
+            android:icon="@mipmap/ic_access_time_grey600_18dp"
+            android:title="@string/main_menu_timeline" />
+        <!--<item-->
+            <!--android:id="@+id/nav_tags"-->
+            <!--android:icon="@mipmap/ic_local_offer_grey600_18dp"-->
+            <!--android:title="@string/main_menu_tags" />-->
+    </group>
+
+    <item android:title="@string/main_menu_more">
+        <menu>
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@mipmap/ic_settings_grey600_18dp"
+                android:title="@string/main_menu_about" />
+
+        </menu>
+    </item>
+
+</menu>

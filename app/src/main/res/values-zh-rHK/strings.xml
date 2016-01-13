@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Daily</string>
+
+    <string name="delete">刪除</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sample_plan_1">這是一個例子.\n向右拖動標記為已完成.\n點擊可以查看詳細內容.</string>
+    <string name="sample_plan_2">這是另一個例子.</string>
+
+    <string name="main_menu_timeline">時間線</string>
+    <!--<string name="main_menu_tags">Tags</string>-->
+    <string name="main_menu_more">更多</string>
+    <!--<string name="main_menu_help">Help</string>-->
+    <string name="main_menu_about">關於</string>
+    <string name="time_plan">計劃</string>
+    <string name="date_format" formatted="false">%s%d日\n%s%s</string>
+
+    <!-- content -->
+    <string name="title_content">內容</string>
+    <string name="title_start_time_dialog">開始日期</string>
+    <string name="title_finish_time_dialog">結束日期</string>
+    <string name="datePicker_btn_unFinished">未完成</string>
+
+    <!-- edit -->
+    <string name="title_add">添加</string>
+    <string name="title_edit">修改</string>
+    <string name="restore">恢復</string>
+
+    <!-- settings -->
+    <string name="title_about">關於</string>
+
+    <string name="large_text">
+        "Daily是一款按時間線排序的工作日記.\n\n"
+
+        "你可以簡單的記錄下你的工作計劃或者每日的工作內容. 這有助於你整理好思路, 提高工作效率!\n\n"
+
+        "Daily的用戶界面遵循 Material Design 設計語言, 帶給你不一樣的體驗!\n\n"
+
+        "最後, 祝您生活愉快!\n"
+
+    </string>
+</resources>

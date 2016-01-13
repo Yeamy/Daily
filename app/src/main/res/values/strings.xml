@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Daily</string>
+
+    <string name="delete">delete</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sample_plan_1">This is the sample plan.\nSlide to right make it finish.\nTap to see more details.</string>
+    <string name="sample_plan_2">This is another sample plan.</string>
+
+    <string name="main_menu_timeline">Timeline</string>
+    <!--<string name="main_menu_tags">Tags</string>-->
+    <string name="main_menu_more">More</string>
+    <!--<string name="main_menu_help">Help</string>-->
+    <string name="main_menu_about">About</string>
+    <string name="time_plan">My Plan</string>
+    <string name="date_format" formatted="false">%s %d\n%s%s</string>
+
+    <!-- content -->
+    <string name="title_content">Content</string>
+    <string name="title_start_time_dialog">Start Date</string>
+    <string name="title_finish_time_dialog">Finish Date</string>
+    <string name="datePicker_btn_unFinished">UNFINISHED</string>
+
+    <!-- edit -->
+    <string name="title_add">Add</string>
+    <string name="title_edit">Edit</string>
+    <string name="restore">Restore</string>
+
+    <!-- settings -->
+    <string name="title_about">About</string>
+
+    <string name="large_text">
+        "Daily is a work diary arranged by a timeline.\n\n"
+
+        "You can easily write down your work plan or your daily work content. "
+        "It is good to help you organize your thoughts and improve your efficiency!\n\n"
+
+        "Daily's UI is design follow the Material Design!\n\n"
+
+        "At last, wish you a happy life!\n"
+    </string>
+    <!-- donate -->
+    <!--<string name="title_donate">Donate</string>-->
+    <!--<string name="donate_message">Donate us with Alipay</string>-->
+</resources>
