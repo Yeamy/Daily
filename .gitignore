@@ -7,18 +7,4 @@
 /build
 /captures
 
-.idea/vcs.xml
-
-.idea/runConfigurations.xml
-
-.idea/.name
-
-.idea/compiler.xml
-
-.idea/copyright/profiles_settings.xml
-
-.idea/gradle.xml
-
-.idea/modules.xml
-
-.idea/misc.xml
+.idea/*
