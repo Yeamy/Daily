@@ -6,7 +6,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="textPrimary">#5F5F5F</color>
     <color name="textPrimaryDark">#333</color>
-    <color name="dividerColor">#ddd</color>
+    <color name="dividerColor">#ccc</color>
     <color name="widgetTitle">#d02a3259</color>
     <color name="widgetBody">#D0FFFFFF</color>
 </resources>

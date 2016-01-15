@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="83dp"
         android:layout_marginStart="83dp"
-        android:background="#ddd" />
+        android:background="@color/dividerColor" />
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
