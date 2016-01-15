@@ -7,6 +7,13 @@
     android:fitsSystemWindows="true"
     tools:context="com.yeamy.daily.MainActivity">
 
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="83dp"
+        android:layout_marginStart="83dp"
+        android:background="#ddd" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"

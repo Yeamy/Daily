@@ -98,7 +98,7 @@ public class DataBase extends SQLiteOpenHelper {
         sql = String.format(sql, T_CONTENT, FINISH, from, FINISH, ID, limit);
         Cursor cur = db.rawQuery(sql, null);
         if (cur != null) {
-            list = new ArrayList<>();
+            list = new ArrayList<>(cur.getCount());
             int _id = cur.getColumnIndex(ID);
             int startTime = cur.getColumnIndex(START);
             int finishTime = cur.getColumnIndex(FINISH);
@@ -115,5 +115,24 @@ public class DataBase extends SQLiteOpenHelper {
         }
         db.close();
         return list;
+    }
+
+    public String[] getPlans() {
+        String[] array = null;
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = "select * from %s where %s = %d order by %s asc limit %d";
+        sql = String.format(sql, T_CONTENT, FINISH, Long.MAX_VALUE, ID, 20);
+        Cursor cur = db.rawQuery(sql, null);
+        if (cur != null) {
+            array = new String[cur.getCount()];
+            int i = 0;
+            int content = cur.getColumnIndex(CONTENT);
+            while (cur.moveToNext()) {
+                array[i++] = cur.getString(content);//.replace('\n', ' ');
+            }
+            cur.close();
+        }
+        db.close();
+        return array;
     }
 }
