@@ -88,7 +88,7 @@ public class DataList {
         int position = 0;
         for (Mission item : data) {
             if (item._id == mission._id) {
-                return;
+                break;
             }
             position++;
         }

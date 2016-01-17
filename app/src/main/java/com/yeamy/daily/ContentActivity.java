@@ -109,7 +109,9 @@ public class ContentActivity extends BaseActivity implements View.OnClickListene
         switch (item.getItemId()) {
             case R.id.delete:
                 HandleTask.del(this, mission);
-                setResult(RESULT_DEL);
+                Intent intent = new Intent();
+                intent.putExtra(EXTRA_MISSION, mission);
+                setResult(RESULT_DEL, intent);
                 finish();
                 return true;
         }
