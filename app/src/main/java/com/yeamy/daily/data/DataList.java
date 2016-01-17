@@ -39,7 +39,8 @@ public class DataList {
             }
             if (tmp.finishTime == mission.finishTime) {
                 first |= 1;
-                if (tmp._id < mission._id) {
+//                if (tmp._id < mission._id) {//ASC by ID
+                if (tmp._id > mission._id) {//DESC by ID
                     first |= 2;
                     i++;
                     continue;

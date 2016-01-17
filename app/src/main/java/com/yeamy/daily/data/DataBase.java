@@ -94,7 +94,7 @@ public class DataBase extends SQLiteOpenHelper {
     public ArrayList<Mission> get(long from, int limit) {
         ArrayList<Mission> list = null;
         SQLiteDatabase db = getReadableDatabase();
-        String sql = "select * from %s where %s > %d order by %s desc, %s asc limit %d";
+        String sql = "select * from %s where %s > %d order by %s desc, %s desc limit %d";
         sql = String.format(sql, T_CONTENT, FINISH, from, FINISH, ID, limit);
         Cursor cur = db.rawQuery(sql, null);
         if (cur != null) {
@@ -120,7 +120,7 @@ public class DataBase extends SQLiteOpenHelper {
     public String[] getPlans() {
         String[] array = null;
         SQLiteDatabase db = getReadableDatabase();
-        String sql = "select * from %s where %s = %d order by %s asc limit %d";
+        String sql = "select * from %s where %s = %d order by %s desc limit %d";
         sql = String.format(sql, T_CONTENT, FINISH, Long.MAX_VALUE, ID, 20);
         Cursor cur = db.rawQuery(sql, null);
         if (cur != null) {
