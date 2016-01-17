@@ -1,5 +1,6 @@
 package com.yeamy.daily;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -25,6 +26,12 @@ import com.yeamy.daily.view.SlideLayout;
 import java.util.ArrayList;
 
 public class TimelineFragment extends Fragment implements SlideLayout.OnSlideListener {
+    public static final int RESULT_EDIT = -1;
+    public static final int RESULT_DEL = -2;
+    public static final int RESULT_ADD = -3;
+    public static final int RESULT_CANCELED = Activity.RESULT_CANCELED;
+    public static final String EXTRA_MISSION = "mission";
+
     private RecyclerView recycler;
     private Adapter adapter = new Adapter();
     private DataList data = new DataList();
@@ -60,12 +67,12 @@ public class TimelineFragment extends Fragment implements SlideLayout.OnSlideLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fab:
-                startActivityForResult(new Intent(v.getContext(), ContentActivity.class), 100);
+                startActivityForResult(new Intent(v.getContext(), AddActivity.class), 100);
                 break;
             case R.id.slide:
                 Mission mission = (Mission) v.getTag();
                 Intent intent = new Intent(getContext(), ContentActivity.class);
-                intent.putExtra(ContentActivity.EXTRA_MISSION, mission);
+                intent.putExtra(EXTRA_MISSION, mission);
                 startActivityForResult(intent, 101);
                 break;
         }
@@ -75,22 +82,22 @@ public class TimelineFragment extends Fragment implements SlideLayout.OnSlideLis
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        System.out.println("requestCode " + requestCode + " resultCode " + resultCode);
         switch (resultCode) {
-            case ContentActivity.RESULT_EDIT: {
-                Mission mission = (Mission) data.getSerializableExtra(ContentActivity.EXTRA_MISSION);
+            case RESULT_EDIT: {
+                Mission mission = (Mission) data.getSerializableExtra(EXTRA_MISSION);
                 this.data.invalidate(adapter, mission);
                 break;
             }
-            case ContentActivity.RESULT_ADD: {
-                Mission mission = (Mission) data.getSerializableExtra(ContentActivity.EXTRA_MISSION);
+            case RESULT_ADD: {
+                Mission mission = (Mission) data.getSerializableExtra(EXTRA_MISSION);
                 this.data.add(adapter, mission);
                 break;
             }
-            case ContentActivity.RESULT_DEL: {
-                Mission mission = (Mission) data.getSerializableExtra(ContentActivity.EXTRA_MISSION);
+            case RESULT_DEL: {
+                Mission mission = (Mission) data.getSerializableExtra(EXTRA_MISSION);
                 this.data.remove(adapter, mission);
                 break;
             }
-            case ContentActivity.RESULT_CANCELED:
+            case RESULT_CANCELED:
                 break;
         }
     }

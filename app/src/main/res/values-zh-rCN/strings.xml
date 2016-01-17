@@ -22,9 +22,10 @@
     <string name="datePicker_btn_unFinished">未完成</string>
 
     <!-- edit -->
-    <string name="title_add">添加</string>
-    <string name="title_edit">修改</string>
+    <string name="title_add">添加事项</string>
+    <string name="title_edit">修改事项</string>
     <string name="restore">恢复</string>
+    <string name="empty_text">内容不能为空</string>
 
     <!-- settings -->
     <string name="title_about">关于</string>

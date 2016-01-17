@@ -25,6 +25,7 @@
     <string name="title_add">Add</string>
     <string name="title_edit">Edit</string>
     <string name="restore">Restore</string>
+    <string name="empty_text">Text cannot be empty</string>
 
     <!-- settings -->
     <string name="title_about">About</string>

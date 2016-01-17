@@ -15,7 +15,6 @@ import com.yeamy.daily.app.BaseActivity;
  */
 public class EditActivity extends BaseActivity implements View.OnClickListener {
     public static final String EXTRA_TXT = "txt";
-    private boolean addMode;
     private String text;
     private EditText edit;
 
@@ -27,10 +26,6 @@ public class EditActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.fab).setOnClickListener(this);
 
         text = getIntent().getStringExtra(EXTRA_TXT);
-        addMode = (text == null);
-        if (addMode) {
-            setTitle(R.string.title_add);
-        }
         edit.setText(text);
     }
 
@@ -38,11 +33,10 @@ public class EditActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         String txt = edit.getText().toString();
         if (txt.length() == 0) {
-            Snackbar.make(edit, "Text cannot be null", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
+            Snackbar.make(edit, R.string.empty_text, Snackbar.LENGTH_LONG).show();
             return;
         }
-        if (addMode || txt.length() != this.text.length() || !txt.equals(this.text)) {
+        if (txt.length() != this.text.length() || !txt.equals(this.text)) {
             Intent data = new Intent();
             data.putExtra(EXTRA_TXT, txt);
             setResult(RESULT_OK, data);
@@ -52,10 +46,8 @@ public class EditActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (!addMode) {
-            menu.add(0, R.id.restore, 0, R.string.restore).setIcon(R.mipmap.ic_restore_white_24dp)
-                    .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        }
+        menu.add(0, R.id.restore, 0, R.string.restore).setIcon(R.mipmap.ic_restore_white_24dp)
+                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -69,9 +61,4 @@ public class EditActivity extends BaseActivity implements View.OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(0, 0);
-    }
 }

@@ -3,7 +3,6 @@ package com.yeamy.daily.app;
 import android.content.Context;
 import android.os.Build;
 
-@Deprecated
 public class ResourcesCompact {
 
     public static int getColor(Context context, int resId) {

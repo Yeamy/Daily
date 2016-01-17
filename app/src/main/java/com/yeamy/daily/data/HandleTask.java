@@ -4,7 +4,6 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.os.AsyncTaskCompat;
 
@@ -13,6 +12,10 @@ import com.yeamy.daily.MainWidgetProvider;
 public class HandleTask {
 
     public static void add(final Context context, final Mission mission) {
+        add(context, mission, null);
+    }
+
+    public static void add(final Context context, final Mission mission, final Runnable r) {
         AsyncTaskCompat.executeParallel(new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] params) {
@@ -20,6 +23,13 @@ public class HandleTask {
                 db.add(mission);
                 updateWidget(context);
                 return null;
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                if (r != null) {
+                    r.run();
+                }
             }
         });
     }

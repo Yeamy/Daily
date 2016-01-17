@@ -33,6 +33,11 @@
             android:label="@string/title_content"
             android:theme="@style/AppTheme.NoActionBar.NoOver" />
         <activity
+            android:name=".AddActivity"
+            android:label="@string/title_add"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".EditActivity"
             android:label="@string/title_edit"
             android:theme="@style/AppTheme.NoActionBar"

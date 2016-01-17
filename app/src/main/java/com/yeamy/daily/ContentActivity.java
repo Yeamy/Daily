@@ -1,5 +1,9 @@
 package com.yeamy.daily;
 
+import static com.yeamy.daily.TimelineFragment.RESULT_EDIT;
+import static com.yeamy.daily.TimelineFragment.RESULT_DEL;
+import static com.yeamy.daily.TimelineFragment.EXTRA_MISSION;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -24,11 +28,6 @@ import com.yeamy.daily.data.Mission;
  */
 public class ContentActivity extends BaseActivity implements View.OnClickListener,
         DatePickerDialog.OnDateSetListener {
-    public int RESULT_OK;
-    public static final int RESULT_EDIT = -1;
-    public static final int RESULT_DEL = -2;
-    public static final int RESULT_ADD = -3;
-    public static final String EXTRA_MISSION = "mission";
     private Mission mission;
     private TextView content, startTime, finishTime;
     private Intent result = new Intent();
@@ -51,15 +50,8 @@ public class ContentActivity extends BaseActivity implements View.OnClickListene
         content = (TextView) findViewById(R.id.content);
 
         mission = (Mission) getIntent().getSerializableExtra(EXTRA_MISSION);
-        if (mission == null) {
-            RESULT_OK = RESULT_ADD;
-            startActivityForResult(new Intent(this, EditActivity.class), 0);
-            overridePendingTransition(0, 0);
-        } else {
-            RESULT_OK = RESULT_EDIT;
-            setData(mission);
-            result.putExtra(EXTRA_MISSION, mission);
-        }
+        setData(mission);
+        result.putExtra(EXTRA_MISSION, mission);
     }
 
     @Override
@@ -67,20 +59,12 @@ public class ContentActivity extends BaseActivity implements View.OnClickListene
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
             String txt = data.getStringExtra(EditActivity.EXTRA_TXT);
-            if (mission == null) {
-                mission = new Mission();
-                mission.content = txt;
-                setData(mission);
-                HandleTask.add(this, mission);
-                result.putExtra(EXTRA_MISSION, mission);
-            } else {
-                mission.content = txt;
-                content.setText(txt);
-                ContentValues values = new ContentValues();
-                values.put(DataBase.CONTENT, txt);
-                HandleTask.update(this, mission, values);
-            }
-            setResult(RESULT_OK, result);
+            mission.content = txt;
+            content.setText(txt);
+            ContentValues values = new ContentValues();
+            values.put(DataBase.CONTENT, txt);
+            HandleTask.update(this, mission, values);
+            setResult(RESULT_EDIT, result);
         } else if (mission == null) {
             setResult(RESULT_CANCELED);
             finish();
@@ -169,7 +153,7 @@ public class ContentActivity extends BaseActivity implements View.OnClickListene
                 HandleTask.update(this, mission, values);
                 break;
         }
-        setResult(RESULT_OK, result);
+        setResult(RESULT_EDIT, result);
     }
 
     @Override
