@@ -31,17 +31,17 @@ public class DataList {
     }
 
     public void add(Adapter adapter, Mission mission) {
-        int i = 0, first = 0;
+        int i = 0, first = 0x0;
         for (Mission tmp : data) {
             if (tmp.finishTime > mission.finishTime) {
                 i++;
                 continue;
             }
             if (tmp.finishTime == mission.finishTime) {
-                first |= 1;
+                first |= 0x1;
 //                if (tmp._id < mission._id) {//ASC by ID
                 if (tmp._id > mission._id) {//DESC by ID
-                    first |= 2;
+                    first |= 0x2;
                     i++;
                     continue;
                 }
@@ -50,7 +50,7 @@ public class DataList {
         }
         data.add(i, mission);
         adapter.notifyItemInserted(i);
-        if ((first & 3) == 1 && isFirst(i)) {
+        if ((first & 0x3) == 1 && isFirst(i)) {
             adapter.notifyItemChanged(i + 1);
         }
     }
@@ -64,7 +64,7 @@ public class DataList {
                 old = item;
                 break;
             }
-            position++;
+            ++position;
         }
         if (old == null) {
             return;
@@ -73,12 +73,12 @@ public class DataList {
             old.copy(mission);
             adapter.notifyItemChanged(position);
         } else {
-            old.copy(mission);
             data.remove(position);//remove
             adapter.notifyItemRemoved(position);
             if (data.size() > position && isFirst(position)) {//if has next set it to be first
                 adapter.notifyItemChanged(position);
             }
+            old.copy(mission);//copy data
             mission.finishDate = null;
             add(adapter, mission);//add back
         }
@@ -91,10 +91,13 @@ public class DataList {
             if (item._id == mission._id) {
                 break;
             }
-            position++;
+            ++position;
         }
         data.remove(position);
         adapter.notifyItemRemoved(position);
+        if (data.size() > position && isFirst(position)) {//next
+            adapter.notifyItemChanged(position);
+        }
     }
 
     public void change(Adapter adapter, Mission mission) {

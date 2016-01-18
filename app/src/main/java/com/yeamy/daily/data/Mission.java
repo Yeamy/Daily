@@ -21,6 +21,7 @@ public class Mission implements Serializable {
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
+        createTime = System.currentTimeMillis();
         startTime = calendar.getTimeInMillis();
         finishTime = Long.MAX_VALUE;
     }
@@ -37,6 +38,8 @@ public class Mission implements Serializable {
     int _id;
     public long startTime;
     public long finishTime;
+    long createTime;
+    public int color;
     public String content;
 //    public String tags;
 

@@ -109,6 +109,7 @@ public class ContentActivity extends BaseActivity implements View.OnClickListene
                 Intent intent = new Intent(this, EditActivity.class);
                 intent.putExtra(EditActivity.EXTRA_TXT, mission.content);
                 startActivityForResult(intent, 0);
+                overridePendingTransition(0, 0);
                 break;
             }
             case R.id.startTime: {

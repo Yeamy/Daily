@@ -90,6 +90,7 @@ public class TimelineFragment extends Fragment implements SlideLayout.OnSlideLis
             case RESULT_ADD: {
                 Mission mission = (Mission) data.getSerializableExtra(EXTRA_MISSION);
                 this.data.add(adapter, mission);
+                recycler.smoothScrollToPosition(0);
                 break;
             }
             case RESULT_DEL: {
