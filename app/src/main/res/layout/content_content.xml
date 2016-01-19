@@ -66,7 +66,6 @@
         android:gravity="center_vertical"
         android:minHeight="50dp"
         android:paddingRight="5dp"
-        android:text="From:"
         android:textColor="#000"
         android:textSize="14sp"
         app:layout_gravity="fill_horizontal" />
@@ -77,7 +76,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:minHeight="50dp"
-        android:text="2015 Dec. 28 Mon"
         android:textSize="14sp"
         app:layout_gravity="fill_horizontal" />
 
@@ -87,7 +85,6 @@
         android:gravity="center_vertical"
         android:minHeight="50dp"
         android:paddingRight="5dp"
-        android:text="Finish:"
         android:textColor="#000"
         android:textSize="14sp" />
 
@@ -97,7 +94,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:minHeight="50dp"
-        android:text="2015 Dec. 28 Mon"
         android:textSize="14sp"
         app:layout_gravity="fill_horizontal" />
 
