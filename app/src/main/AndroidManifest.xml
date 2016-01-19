@@ -29,8 +29,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ContentActivity"
-            android:label="@string/title_content"
+            android:name=".DetailsActivity"
+            android:label="@string/title_details"
             android:theme="@style/AppTheme.NoActionBar.NoOver" />
         <activity
             android:name=".AddActivity"

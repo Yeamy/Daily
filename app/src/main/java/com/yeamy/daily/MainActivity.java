@@ -3,23 +3,17 @@ package com.yeamy.daily;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.SparseArray;
 import android.view.MenuItem;
-import android.widget.ImageView;
 
 import com.umeng.analytics.MobclickAgent;
 
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private SparseArray<Fragment> fragments = new SparseArray<>(3);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +32,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_timeline);
         showView(R.id.nav_timeline);
+
+        TimelineFragment fragment = new TimelineFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, fragment).commit();
     }
 
     @Override
@@ -62,23 +59,16 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void showView(int id) {
-        Fragment fragment = fragments.get(id);
-        if (fragment == null) {
-            switch (id) {
-                case R.id.nav_timeline:
-                    fragment = new TimelineFragment();
-                    break;
-//                case R.id.nav_tags:
-//                    fragment = new TagsFragment();
-//                    break;
-                case R.id.nav_about:
-                    startActivity(new Intent(this, AboutActivity.class));
-                default:
-                    return;
-            }
-            fragments.put(id, fragment);
+        switch (id) {
+            case R.id.nav_timeline:
+                break;
+            case R.id.nav_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return;
+            case R.id.nav_about:
+                startActivity(new Intent(this, AboutActivity.class));
+            default:
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.content, fragment).commit();
     }
 
     @Override

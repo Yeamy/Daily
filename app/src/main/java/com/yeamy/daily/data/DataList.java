@@ -1,6 +1,6 @@
 package com.yeamy.daily.data;
 
-import com.yeamy.daily.Adapter;
+import com.yeamy.daily.TimelineAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -30,7 +30,7 @@ public class DataList {
         data.addAll(list);
     }
 
-    public void add(Adapter adapter, Mission mission) {
+    public void add(TimelineAdapter adapter, Mission mission) {
         int i = 0, first = 0x0;
         for (Mission tmp : data) {
             if (tmp.finishTime > mission.finishTime) {
@@ -55,7 +55,7 @@ public class DataList {
         }
     }
 
-    public void invalidate(Adapter adapter, Mission mission) {
+    public void invalidate(TimelineAdapter adapter, Mission mission) {
         ArrayList<Mission> data = this.data;
         Mission old = null;
         int position = 0;
@@ -84,7 +84,7 @@ public class DataList {
         }
     }
 
-    public void remove(Adapter adapter, Mission mission) {
+    public void remove(TimelineAdapter adapter, Mission mission) {
         ArrayList<Mission> data = this.data;
         int position = 0;
         for (Mission item : data) {
@@ -100,7 +100,7 @@ public class DataList {
         }
     }
 
-    public void change(Adapter adapter, Mission mission) {
+    public void change(TimelineAdapter adapter, Mission mission) {
         ArrayList<Mission> data = this.data;
         int position = data.indexOf(mission);
         if (position != -1) {

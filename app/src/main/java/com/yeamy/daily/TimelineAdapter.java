@@ -9,11 +9,11 @@ import com.yeamy.daily.data.DataList;
 import com.yeamy.daily.data.Mission;
 import com.yeamy.daily.view.SlideLayout;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHolder> {
     private DataList data;
     private SlideLayout.OnSlideListener listener;
 
-    public Adapter() {
+    public TimelineAdapter() {
     }
 
     public void setData(DataList data, SlideLayout.OnSlideListener listener) {
@@ -38,7 +38,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(parent.getContext(), R.layout.li_mission, null);
+        View view = View.inflate(parent.getContext(), R.layout.li_timeline, null);
         ViewHolder holder = new ViewHolder(view);
         holder.slide.setListener(listener);
         return holder;

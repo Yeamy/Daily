@@ -26,7 +26,7 @@ import com.yeamy.daily.data.Mission;
 /**
  * 修改FinishTime,无需提示,直接保存
  */
-public class ContentActivity extends BaseActivity implements View.OnClickListener,
+public class DetailsActivity extends BaseActivity implements View.OnClickListener,
         DatePickerDialog.OnDateSetListener {
     private Mission mission;
     private TextView content, startTime, finishTime;
@@ -35,7 +35,7 @@ public class ContentActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_content);
+        setContentView(R.layout.activity_details);
         findViewById(R.id.fab).setOnClickListener(this);
 
         //startTime

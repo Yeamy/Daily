@@ -33,7 +33,7 @@ public class TimelineFragment extends Fragment implements SlideLayout.OnSlideLis
     public static final String EXTRA_MISSION = "mission";
 
     private RecyclerView recycler;
-    private Adapter adapter = new Adapter();
+    private TimelineAdapter adapter = new TimelineAdapter();
     private DataList data = new DataList();
 
     @Override
@@ -71,7 +71,7 @@ public class TimelineFragment extends Fragment implements SlideLayout.OnSlideLis
                 break;
             case R.id.slide:
                 Mission mission = (Mission) v.getTag();
-                Intent intent = new Intent(getContext(), ContentActivity.class);
+                Intent intent = new Intent(getContext(), DetailsActivity.class);
                 intent.putExtra(EXTRA_MISSION, mission);
                 startActivityForResult(intent, 101);
                 break;

@@ -10,13 +10,13 @@
     <string name="main_menu_timeline">時間線</string>
     <!--<string name="main_menu_tags">Tags</string>-->
     <string name="main_menu_more">更多</string>
-    <!--<string name="main_menu_help">Help</string>-->
+    <string name="main_menu_settings">設置</string>
     <string name="main_menu_about">關於</string>
     <string name="time_plan">計劃</string>
     <string name="date_format" formatted="false">%s%d日\n%s%s</string>
 
-    <!-- content -->
-    <string name="title_content">事項</string>
+    <!-- details -->
+    <string name="title_details">事項</string>
     <string name="title_start_time_dialog">開始日期</string>
     <string name="title_finish_time_dialog">結束日期</string>
     <string name="datePicker_btn_unFinished">未完成</string>
