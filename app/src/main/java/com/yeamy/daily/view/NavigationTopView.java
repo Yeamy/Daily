@@ -15,6 +15,10 @@ public class NavigationTopView extends ImageView {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         setScaleType(ScaleType.CENTER_CROP);
-        setImageResource(hour < 18 ? R.mipmap.nav_top_day : R.mipmap.nav_top_night);
+        if (hour > 6 && hour < 18) {
+            setImageResource(R.mipmap.nav_top_day);
+        } else {
+            setImageResource(R.mipmap.nav_top_night);
+        }
     }
 }
