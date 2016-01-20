@@ -1,9 +1,5 @@
 package com.yeamy.daily;
 
-import static com.yeamy.daily.TimelineFragment.RESULT_EDIT;
-import static com.yeamy.daily.TimelineFragment.RESULT_DEL;
-import static com.yeamy.daily.TimelineFragment.EXTRA_MISSION;
-
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -23,13 +19,18 @@ import com.yeamy.daily.data.DataBase;
 import com.yeamy.daily.data.HandleTask;
 import com.yeamy.daily.data.Mission;
 
+import static com.yeamy.daily.TimelineFragment.EXTRA_MISSION;
+import static com.yeamy.daily.TimelineFragment.RESULT_DEL;
+import static com.yeamy.daily.TimelineFragment.RESULT_EDIT;
+
 /**
  * 修改FinishTime,无需提示,直接保存
  */
 public class DetailsActivity extends BaseActivity implements View.OnClickListener,
-        DatePickerDialog.OnDateSetListener {
+        DatePickerDialog.OnDateSetListener, ColorDialog.OnColorSelectedListener {
     private Mission mission;
     private TextView content, startTime, finishTime;
+    private View color;
     private Intent result = new Intent();
 
     @Override
@@ -48,6 +49,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         this.finishTime = finishTime;
         //content
         content = (TextView) findViewById(R.id.content);
+        color = findViewById(R.id.color);
 
         mission = (Mission) getIntent().getSerializableExtra(EXTRA_MISSION);
         setData(mission);
@@ -80,10 +82,13 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
             finishTime.setText(getStrikeText(startDate));
         }
         content.setText(mission.content);
+        color.setBackgroundColor(mission.color);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, R.id.color, 0, R.string.color).setIcon(R.mipmap.ic_color_lens_white_24dp)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         menu.add(0, R.id.delete, 0, R.string.delete);
         return super.onCreateOptionsMenu(menu);
     }
@@ -91,15 +96,26 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.color:
+                new ColorDialog(this, mission.color, this).show();
+                break;
             case R.id.delete:
                 HandleTask.del(this, mission);
-                Intent intent = new Intent();
-                intent.putExtra(EXTRA_MISSION, mission);
-                setResult(RESULT_DEL, intent);
+                setResult(RESULT_DEL, result);
                 finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onColorSelected(int color) {
+        mission.color = color;
+        this.color.setBackgroundColor(color);
+        setResult(RESULT_EDIT, result);
+        ContentValues values = new ContentValues();
+        values.put(DataBase.COLOR, color);
+        HandleTask.update(this, mission, values);
     }
 
     @Override
@@ -108,7 +124,9 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
             case R.id.fab: {
                 Intent intent = new Intent(this, EditActivity.class);
                 intent.putExtra(EditActivity.EXTRA_TXT, mission.content);
+                intent.putExtra(EditActivity.EXTRA_COLOR, mission.color);
                 startActivityForResult(intent, 0);
+                overridePendingTransition(0, 0);
                 break;
             }
             case R.id.startTime: {

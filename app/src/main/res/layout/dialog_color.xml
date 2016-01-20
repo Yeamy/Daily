@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp">
+
+    <android.support.v7.widget.GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:columnCount="4">
+
+        <com.yeamy.widget.ImageCheckButton
+            android:id="@+id/color_lens_null"
+            style="@style/ColorDialog_color"
+            android:background="@drawable/color_lens_null"
+            android:src="@drawable/color_lens_button_null" />
+
+        <com.yeamy.widget.ImageCheckButton
+            android:id="@+id/color_lens_red"
+            style="@style/ColorDialog_color"
+            android:background="@drawable/color_lens_red"
+            android:src="@drawable/color_lens_button" />
+
+        <com.yeamy.widget.ImageCheckButton
+            android:id="@+id/color_lens_yellow"
+            style="@style/ColorDialog_color"
+            android:background="@drawable/color_lens_yellow"
+            android:src="@drawable/color_lens_button" />
+
+        <com.yeamy.widget.ImageCheckButton
+            android:id="@+id/color_lens_green"
+            style="@style/ColorDialog_color"
+            android:background="@drawable/color_lens_green"
+            android:src="@drawable/color_lens_button" />
+
+        <com.yeamy.widget.ImageCheckButton
+            android:id="@+id/color_lens_blue"
+            style="@style/ColorDialog_color"
+            android:background="@drawable/color_lens_blue"
+            android:src="@drawable/color_lens_button" />
+
+        <com.yeamy.widget.ImageCheckButton
+            android:id="@+id/color_lens_purple"
+            style="@style/ColorDialog_color"
+            android:background="@drawable/color_lens_purple"
+            android:src="@drawable/color_lens_button" />
+
+        <com.yeamy.widget.ImageCheckButton
+            android:id="@+id/color_lens_brown"
+            style="@style/ColorDialog_color"
+            android:background="@drawable/color_lens_brown"
+            android:src="@drawable/color_lens_button" />
+
+        <com.yeamy.widget.ImageCheckButton
+            android:id="@+id/color_lens_grey"
+            style="@style/ColorDialog_color"
+            android:background="@drawable/color_lens_grey"
+            android:src="@drawable/color_lens_button" />
+
+    </android.support.v7.widget.GridLayout>
+</FrameLayout>

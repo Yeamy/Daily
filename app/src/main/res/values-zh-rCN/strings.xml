@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">每日</string>
 
+    <string name="color">更改颜色</string>
     <string name="delete">删除</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

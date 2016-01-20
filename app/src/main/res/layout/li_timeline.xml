@@ -33,10 +33,14 @@
         android:id="@+id/slide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="96dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginStart="96dp">
+
+        <View
+            android:id="@+id/color"
+            android:layout_width="@dimen/content_color_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="end" />
 
         <TextView
             android:id="@+id/content"
@@ -45,8 +49,10 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="10"
-            android:minHeight="54dp"
+            android:minHeight="74dp"
+            android:paddingBottom="10dp"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp" />
+            android:paddingRight="16dp"
+            android:paddingTop="10dp" />
     </com.yeamy.daily.view.SlideLayout>
 </FrameLayout>

@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
             case R.id.nav_timeline:
                 break;
-            case R.id.nav_settings:
-                startActivity(new Intent(this, SettingsActivity.class));
-                return;
+//            case R.id.nav_settings:
+//                startActivity(new Intent(this, SettingsActivity.class));
+//                return;
             case R.id.nav_about:
                 startActivity(new Intent(this, AboutActivity.class));
             default:

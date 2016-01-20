@@ -5,6 +5,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
@@ -28,6 +29,19 @@ public class SlideLayout extends FrameLayout {
     private void init(Context context) {
         detector = new GestureDetector(context, new GestureListener());
         scroller = new Scroller(context, new LinearInterpolator());
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        int count = getChildCount();
+        bottom -= getPaddingBottom();
+        for (int i = 0; i < count; i++) {
+            View view = getChildAt(i);
+            if (view.getLayoutParams().height == LayoutParams.MATCH_PARENT) {
+                view.layout(view.getLeft(), view.getTop(), view.getRight(), bottom);
+            }
+        }
     }
 
     @Override

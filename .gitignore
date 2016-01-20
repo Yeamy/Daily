@@ -8,3 +8,6 @@
 /captures
 
 .idea/*
+widget/src/test/java/com/yeamy/widget/ExampleUnitTest.java
+
+widget/proguard-rules.pro

@@ -24,6 +24,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
         SlideLayout slide;
         TextView content;
+        View color;
         TextView date;
         View point;
 
@@ -31,6 +32,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
             super(itemView);
             slide = (SlideLayout) itemView.findViewById(R.id.slide);
             content = (TextView) slide.findViewById(R.id.content);
+            color = itemView.findViewById(R.id.color);
             date = (TextView) itemView.findViewById(R.id.date);
             point = itemView.findViewById(R.id.point);
         }
@@ -49,6 +51,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.ViewHo
         Mission mission = data.get(position);
         holder.slide.setTag(mission);
         holder.slide.reset();
+        holder.color.setBackgroundColor(mission.color);
         holder.content.setText(mission.content);
         if (data.isFirst(position)) {
             holder.date.setVisibility(View.VISIBLE);

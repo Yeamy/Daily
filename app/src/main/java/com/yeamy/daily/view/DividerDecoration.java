@@ -5,13 +5,11 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.v4.graphics.ColorUtils;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.yeamy.daily.R;
-import com.yeamy.daily.app.ResourcesCompact;
-import com.yeamy.daily.data.DataList;
+import com.yeamy.daily.app.ResourcesCompat;
 
 public class DividerDecoration extends RecyclerView.ItemDecoration {
     private int dividerMargin, dividerHeight;
@@ -22,7 +20,7 @@ public class DividerDecoration extends RecyclerView.ItemDecoration {
         this.dividerMargin = res.getDimensionPixelSize(R.dimen.divider_margin_left);
         this.dividerHeight = res.getDimensionPixelSize(R.dimen.divider_height);
         this.paint = new Paint();
-        paint.setColor(ResourcesCompact.getColor(context, R.color.dividerColor));
+        paint.setColor(ResourcesCompat.getColor(context, R.color.dividerColor));
     }
 
     @Override

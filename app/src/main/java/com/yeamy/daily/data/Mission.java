@@ -47,6 +47,7 @@ public class Mission implements Serializable {
         this.startTime = from.startTime;
         this.finishTime = from.finishTime;
         this.content = from.content;
+        this.color = from.color;
     }
 
     public boolean isFinish() {

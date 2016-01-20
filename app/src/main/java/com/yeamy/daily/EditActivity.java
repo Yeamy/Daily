@@ -15,6 +15,7 @@ import com.yeamy.daily.app.BaseActivity;
  */
 public class EditActivity extends BaseActivity implements View.OnClickListener {
     public static final String EXTRA_TXT = "txt";
+    public static final String EXTRA_COLOR = "color";
     private String text;
     private EditText edit;
 
@@ -27,6 +28,8 @@ public class EditActivity extends BaseActivity implements View.OnClickListener {
 
         text = getIntent().getStringExtra(EXTRA_TXT);
         edit.setText(text);
+        int color = getIntent().getIntExtra(EXTRA_COLOR, 0);
+        findViewById(R.id.color).setBackgroundColor(color);
     }
 
     @Override

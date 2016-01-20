@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Daily</string>
 
+    <string name="color">change color</string>
     <string name="delete">delete</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -20,6 +21,7 @@
     <string name="title_start_time_dialog">Start Date</string>
     <string name="title_finish_time_dialog">Finish Date</string>
     <string name="datePicker_btn_unFinished">UNFINISHED</string>
+    <string name="title_color_dialog">Select Color</string>
 
     <!-- edit -->
     <string name="title_add">Add</string>
