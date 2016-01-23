@@ -39,7 +39,6 @@ public class DividerDecoration extends RecyclerView.ItemDecoration {
     }
 
     private void draw(Canvas c, View child, int position) {
-//        int left = (data != null && data.isDivide(position)) ? 0 : dividerMargin;
         int left = dividerMargin;
         int top = child.getBottom();
         int right = child.getWidth();

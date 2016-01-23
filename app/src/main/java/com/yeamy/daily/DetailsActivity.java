@@ -79,7 +79,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         if (mission.isFinish()) {
             finishTime.setText(Mission.getDateText(this, mission.finishTime));
         } else {
-            finishTime.setText(getStrikeText(startDate));
+            finishTime.setText(getStrikeText(Mission.getDateText(this, System.currentTimeMillis())));
         }
         content.setText(mission.content);
         color.setBackgroundColor(mission.color);

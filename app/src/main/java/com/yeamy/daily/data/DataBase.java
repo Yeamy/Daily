@@ -133,18 +133,22 @@ public class DataBase extends SQLiteOpenHelper {
         return list;
     }
 
-    public String[] getPlans() {
-        String[] array = null;
+    public SimpleMission[] getPlans() {
+        SimpleMission[] array = null;
         SQLiteDatabase db = getReadableDatabase();
         String sql = "select * from %s where %s = %d order by %s desc limit %d";
         sql = String.format(sql, T_CONTENT, FINISH, Long.MAX_VALUE, ID, 20);
         Cursor cur = db.rawQuery(sql, null);
         if (cur != null) {
-            array = new String[cur.getCount()];
+            array = new SimpleMission[cur.getCount()];
             int i = 0;
             int content = cur.getColumnIndex(CONTENT);
+            int color = cur.getColumnIndex(COLOR);
             while (cur.moveToNext()) {
-                array[i++] = cur.getString(content);//.replace('\n', ' ');
+                array[i++] = new SimpleMission(
+                        cur.getString(content),//.replace('\n', ' ');
+                        cur.getInt(color)
+                );
             }
             cur.close();
         }

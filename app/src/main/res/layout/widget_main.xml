@@ -25,10 +25,8 @@
         android:layout_height="match_parent"
         android:layout_below="@android:id/title"
         android:background="@color/widgetBody"
-        android:divider="@color/dividerColor"
+        android:divider="@drawable/main_widget_divider"
         android:dividerHeight="@dimen/divider_height"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:scrollbars="none" />
 
 </RelativeLayout>

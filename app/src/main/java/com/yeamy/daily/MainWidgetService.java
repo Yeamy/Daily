@@ -1,11 +1,13 @@
 package com.yeamy.daily;
 
 import android.content.Intent;
-import android.os.Process;
+import android.graphics.Bitmap;
+import android.util.SparseArray;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.yeamy.daily.data.DataBase;
+import com.yeamy.daily.data.SimpleMission;
 
 public class MainWidgetService extends RemoteViewsService {
 
@@ -15,7 +17,8 @@ public class MainWidgetService extends RemoteViewsService {
     }
 
     private class Factory implements RemoteViewsFactory {
-        private String[] list;
+        private SimpleMission[] list;
+        private SparseArray<Bitmap> colors;
 
         @Override
         public void onCreate() {
@@ -24,11 +27,13 @@ public class MainWidgetService extends RemoteViewsService {
         @Override
         public void onDataSetChanged() {
             list = new DataBase(MainWidgetService.this).getPlans();
+            colors = new SparseArray<>(7);
         }
 
         @Override
         public void onDestroy() {
             list = null;
+            colors = null;
         }
 
         @Override
@@ -42,10 +47,19 @@ public class MainWidgetService extends RemoteViewsService {
                 return null;
             }
             RemoteViews rv = new RemoteViews(getPackageName(), R.layout.li_widget_main);
-            rv.setTextViewText(android.R.id.text1, list[position]);
+            SimpleMission item = list[position];
+            rv.setTextViewText(R.id.content, item.content);
+            final int color = item.color;
+            Bitmap bitmap = colors.get(color);
+            if (bitmap == null) {
+                Bitmap.Config config = (color == 0) ? Bitmap.Config.ALPHA_8 : Bitmap.Config.RGB_565;
+                bitmap = Bitmap.createBitmap(new int[]{color}, 1, 1, config);
+                colors.put(color, bitmap);
+            }
+            rv.setImageViewBitmap(R.id.color, bitmap);
 
             Intent li = getPackageManager().getLaunchIntentForPackage(getPackageName());
-            rv.setOnClickFillInIntent(android.R.id.text1, li);
+            rv.setOnClickFillInIntent(R.id.content, li);
 
             return rv;
         }
