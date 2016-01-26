@@ -3,6 +3,7 @@
 
     <string name="color">更改顏色</string>
     <string name="delete">刪除</string>
+    <string name="share">分享</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sample_plan_1">這是一個例子.\n向右拖動標記為已完成.\n點擊可以查看詳細內容.</string>
@@ -18,6 +19,8 @@
 
     <!-- details -->
     <string name="title_details">事項</string>
+    <string name="start_time">開始:</string>
+    <string name="finish_time">結束:</string>
     <string name="title_start_time_dialog">開始日期</string>
     <string name="title_finish_time_dialog">結束日期</string>
     <string name="datePicker_btn_unFinished">未完成</string>

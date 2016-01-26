@@ -75,17 +75,6 @@ public class Mission implements Serializable {
                 calendar.get(DATE),
                 weekdays[calendar.get(DAY_OF_WEEK) - 1],
                 year);
-
-//        StringBuilder sb = new StringBuilder();
-//        sb.append(months[calendar.get(MONTH)]).append(' ')
-//                .append(calendar.get(DATE)).append(' ').append('\n')
-//                .append(weekdays[calendar.get(DAY_OF_WEEK) - 1]);
-//        int year = calendar.get(YEAR);
-//        if (year != nowYear) {
-//            sb.append(' ').append('\n').append(calendar.get(YEAR));
-//        }
-//        return sb.toString();
-
     }
 
     public static String getDateText(Context context, long timeMillis) {
@@ -101,6 +90,16 @@ public class Mission implements Serializable {
                 .append(calendar.get(DATE)).append(' ')
                 .append(weekdays[calendar.get(DAY_OF_WEEK) - 1]);
         return sb.toString();
+    }
 
+    public String toString(Context context) {
+        StringBuilder sb = new StringBuilder(content);
+        sb.append(content).append('\n');
+        sb.append(context.getString(R.string.start_time)).append(' ').append(getDateText(context, startTime));
+        if (finishTime != Long.MAX_VALUE) {
+            sb.append('\n');
+            sb.append(context.getString(R.string.finish_time)).append(' ').append(getDateText(context, finishTime));
+        }
+        return sb.toString();
     }
 }

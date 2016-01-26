@@ -10,6 +10,7 @@ import android.text.SpannableString;
 import android.text.style.StrikethroughSpan;
 import android.view.ActionMode;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -87,9 +88,8 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, R.id.color, 0, R.string.color).setIcon(R.mipmap.ic_color_lens_white_24dp)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add(0, R.id.delete, 0, R.string.delete);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_details, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -98,11 +98,17 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         switch (item.getItemId()) {
             case R.id.color:
                 new ColorDialog(this, mission.color, this).show();
-                break;
+                return true;
             case R.id.delete:
                 HandleTask.del(this, mission);
                 setResult(RESULT_DEL, result);
                 finish();
+                return true;
+            case R.id.share:
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, mission.toString(this));
+                startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);

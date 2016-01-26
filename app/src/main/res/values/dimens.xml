@@ -14,8 +14,6 @@
 
     <dimen name="content_color_width">5dp</dimen>
 
-    <item name="color" type="id" />
-    <item name="delete" type="id" />
     <item name="restore" type="id" />
 
 </resources>
