@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">每日</string>
+    <string name="app_name">Daily</string>
 
     <string name="color">更改颜色</string>
     <string name="delete">删除</string>
@@ -14,7 +14,7 @@
     <string name="main_menu_more">更多</string>
     <string name="main_menu_settings">设置</string>
     <string name="main_menu_about">关于</string>
-    <string name="time_plan">计划</string>
+    <string name="time_plan">计划中</string>
     <string name="date_format" formatted="false">%s%d日\n%s%s</string>
 
     <!-- details -->
@@ -28,7 +28,7 @@
 
     <!-- edit -->
     <string name="title_add">添加事项</string>
-    <string name="title_edit">修改事项</string>
+    <string name="title_edit">事项修改</string>
     <string name="restore">恢复</string>
     <string name="empty_text">内容不能为空</string>
 
@@ -36,11 +36,11 @@
     <string name="title_about">关于</string>
 
     <string name="large_text">
-        "“每日”是一款按时间轴排列的工作日记。\n\n"
+        "Daily是一款按时间轴排列的待办清单。\n\n"
 
         "你可以简单地记录下你的工作计划或者每日的工作内容。这有助于你整理好思路，提高工作效率！\n\n"
 
-        "“每日”的用户界面设计遵循 Material Design 设计语言，带给您不一样的用户体验！\n\n"
+        "Daily的用户界面设计遵循 Material Design 设计语言，带给您不一样的用户体验！\n\n"
 
         "最后，祝您生活愉快！\n"
 

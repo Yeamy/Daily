@@ -12,7 +12,7 @@
     <dimen name="divider_margin_left">111dp</dimen>
     <dimen name="divider_height">1dp</dimen>
 
-    <dimen name="content_color_width">5dp</dimen>
+    <dimen name="content_color_width">6dp</dimen>
 
     <item name="restore" type="id" />
 

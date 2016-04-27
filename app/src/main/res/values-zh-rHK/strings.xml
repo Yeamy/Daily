@@ -14,7 +14,7 @@
     <string name="main_menu_more">更多</string>
     <string name="main_menu_settings">設置</string>
     <string name="main_menu_about">關於</string>
-    <string name="time_plan">計劃</string>
+    <string name="time_plan">計劃中</string>
     <string name="date_format" formatted="false">%s%d日\n%s%s</string>
 
     <!-- details -->
@@ -28,7 +28,7 @@
 
     <!-- edit -->
     <string name="title_add">添加事項</string>
-    <string name="title_edit">修改事項</string>
+    <string name="title_edit">事項修改</string>
     <string name="restore">恢復</string>
     <string name="empty_text">內容不能為空</string>
 
@@ -36,13 +36,13 @@
     <string name="title_about">關於</string>
 
     <string name="large_text">
-        "Daily是一款按時間線排序的工作日記.\n\n"
+        "Daily是一款按時間線排序的待辦清單.\n\n"
 
         "你可以簡單的記錄下你的工作計劃或者每日的工作內容. 這有助於你整理好思路, 提高工作效率!\n\n"
 
         "Daily的用戶界面遵循 Material Design 設計語言, 帶給你不一樣的體驗!\n\n"
 
-        "最後, 祝您生活愉快!\n"
+        "最後, 祝君生活愉快!\n"
 
     </string>
 </resources>
