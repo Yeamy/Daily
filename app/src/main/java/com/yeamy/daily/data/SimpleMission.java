@@ -1,5 +1,8 @@
 package com.yeamy.daily.data;
 
+/**
+ * used in desktop widget
+ */
 public class SimpleMission {
 
     public SimpleMission(String content, int color) {
