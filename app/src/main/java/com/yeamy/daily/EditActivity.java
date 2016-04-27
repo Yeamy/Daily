@@ -28,6 +28,7 @@ public class EditActivity extends BaseActivity implements View.OnClickListener {
 
         text = getIntent().getStringExtra(EXTRA_TXT);
         edit.setText(text);
+        edit.setSelection(text == null ? 0 : text.length());
         int color = getIntent().getIntExtra(EXTRA_COLOR, 0);
         findViewById(R.id.color).setBackgroundColor(color);
     }
