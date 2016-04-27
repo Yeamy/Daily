@@ -38,7 +38,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        findViewById(R.id.fab).setOnClickListener(this);
+//        findViewById(R.id.fab).setOnClickListener(this);
 
         //startTime
         TextView startTime = (TextView) findViewById(R.id.startTime);
@@ -49,10 +49,12 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         finishTime.setOnClickListener(this);
         this.finishTime = finishTime;
         //content
-        content = (TextView) findViewById(R.id.content);
+        TextView content = (TextView) findViewById(R.id.content);
+        content.setOnClickListener(this);
+        this.content = content;
         color = findViewById(R.id.color);
 
-        mission = (Mission) getIntent().getSerializableExtra(EXTRA_MISSION);
+        mission = getIntent().getParcelableExtra(EXTRA_MISSION);
         setData(mission);
         result.putExtra(EXTRA_MISSION, mission);
     }
@@ -127,7 +129,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.fab: {
+            case R.id.content: {
                 Intent intent = new Intent(this, EditActivity.class);
                 intent.putExtra(EditActivity.EXTRA_TXT, mission.content);
                 intent.putExtra(EditActivity.EXTRA_COLOR, mission.color);

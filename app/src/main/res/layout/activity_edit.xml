@@ -21,19 +21,18 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:orientation="horizontal"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <EditText
             android:id="@+id/edit"
             style="@style/TextContent"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/content_color_width"
+            android:layout_marginRight="@dimen/content_color_width"
             android:background="@null"
             android:gravity="top|start"
             android:inputType="textMultiLine"
@@ -45,8 +44,9 @@
         <View
             android:id="@+id/color"
             android:layout_width="@dimen/content_color_width"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="end" />
+    </FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
