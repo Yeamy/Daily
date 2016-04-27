@@ -2,10 +2,13 @@ package com.yeamy.daily.data;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 
 import com.yeamy.daily.R;
 
-import java.io.Serializable;
 import java.util.Calendar;
 
 import static java.util.Calendar.DATE;
@@ -13,7 +16,46 @@ import static java.util.Calendar.DAY_OF_WEEK;
 import static java.util.Calendar.MONTH;
 import static java.util.Calendar.YEAR;
 
-public class Mission implements Serializable {
+public class Mission implements Parcelable {
+
+    int _id;
+    public long startTime;
+    public long finishTime;
+    long createTime;
+    public int color;
+    public String content;
+    //    public String tags;
+
+    public CharSequence finishDate;
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeIntArray(new int[]{_id, color});
+        dest.writeLongArray(new long[]{startTime, finishTime, createTime});
+        dest.writeString(content);
+    }
+
+    public static final Parcelable.Creator<Mission> CREATOR = new Parcelable.Creator<Mission>() {
+
+        @Override
+        public Mission createFromParcel(Parcel source) {
+            int[] ints = new int[2];
+            source.readIntArray(ints);
+            long[] longs = new long[3];
+            source.readLongArray(longs);
+            return new Mission(ints[0], ints[1], longs[0], longs[1], longs[2], source.readString());
+        }
+
+        @Override
+        public Mission[] newArray(int size) {
+            return new Mission[0];
+        }
+    };
 
     public Mission() {
         Calendar calendar = Calendar.getInstance();
@@ -26,22 +68,14 @@ public class Mission implements Serializable {
         finishTime = Long.MAX_VALUE;
     }
 
-    public Mission(int _id, long startTime, long finishTime, String content) {
+    public Mission(int _id, int color, long startTime, long finishTime, long createTime, String content) {
         this._id = _id;
+        this.color = color;
         this.startTime = startTime;
         this.finishTime = finishTime;
+        this.createTime = createTime;
         this.content = content;
     }
-
-    public String finishDate;
-
-    int _id;
-    public long startTime;
-    public long finishTime;
-    long createTime;
-    public int color;
-    public String content;
-//    public String tags;
 
     public void copy(Mission from) {
         this.startTime = from.startTime;
@@ -54,9 +88,11 @@ public class Mission implements Serializable {
         return finishTime != Long.MAX_VALUE;
     }
 
-    public static String getDateList(Context context, long timeMillis) {
+    public static CharSequence getDateList(Context context, long timeMillis) {
         if (timeMillis == Long.MAX_VALUE) {
-            return context.getString(R.string.time_plan);
+            SpannableString sp = new SpannableString(context.getString(R.string.time_plan));
+            sp.setSpan(new RelativeSizeSpan(1.07f), 0, sp.length(), 0);
+            return sp;
         }
         Calendar calendar = Calendar.getInstance();
         int nowYear = calendar.get(YEAR);
@@ -70,6 +106,7 @@ public class Mission implements Serializable {
         if (y != nowYear) {
             year = "\n" + y;
         }
+
         return context.getString(R.string.date_format,
                 months[calendar.get(MONTH)],
                 calendar.get(DATE),
