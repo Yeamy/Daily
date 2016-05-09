@@ -83,18 +83,18 @@ public class TimelineFragment extends Fragment implements SlideLayout.OnSlideLis
 //        System.out.println("requestCode " + requestCode + " resultCode " + resultCode);
         switch (resultCode) {
             case RESULT_EDIT: {
-                Mission mission = (Mission) data.getSerializableExtra(EXTRA_MISSION);
+                Mission mission = data.getParcelableExtra(EXTRA_MISSION);
                 this.data.invalidate(adapter, mission);
                 break;
             }
             case RESULT_ADD: {
-                Mission mission = (Mission) data.getSerializableExtra(EXTRA_MISSION);
+                Mission mission = data.getParcelableExtra(EXTRA_MISSION);
                 this.data.add(adapter, mission);
                 recycler.smoothScrollToPosition(0);
                 break;
             }
             case RESULT_DEL: {
-                Mission mission = (Mission) data.getSerializableExtra(EXTRA_MISSION);
+                Mission mission = data.getParcelableExtra(EXTRA_MISSION);
                 this.data.remove(adapter, mission);
                 break;
             }
